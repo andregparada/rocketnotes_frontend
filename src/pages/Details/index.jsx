@@ -18,7 +18,7 @@ export function Details() {
   const navigate = useNavigate();
 
   function handleBack() {
-    navigate("/");
+    navigate(-1);
   }
 
   async function handleRemove() {
@@ -26,7 +26,7 @@ export function Details() {
 
     if (confirm) {
       await api.delete(`/notes/${params.id}`);
-      navigate("/");
+      navigate(-1);
     }
   }
 
@@ -90,7 +90,10 @@ export function Details() {
             </Section>
           }
 
-          <Button title="Voltar" onClick={handleBack} />
+          <Button 
+            title="Voltar" 
+            onClick={handleBack} 
+          />
         </Content>
         </main>
       }
